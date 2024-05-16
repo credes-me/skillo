@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:skillo/screens/HomeScreen.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+
+
+class MyApp extends StatelessWidget{
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Skillo',
-      home: Text("Welcome to Skillo")
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark
+      ),
+      routes: {},
+      home: const HomeScreen()
     );
   }
 }
